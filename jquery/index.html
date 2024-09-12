@@ -18,10 +18,49 @@
                 <li> <a class="link" href="#">PHP</a></li>
                 <li> <a class="link" href="#">C#</a></li>
             </ul>
+            <hr>
+            <ol></ol>
+            <hr>
+            <p></p>
+            Input: <input type="text" id="test3"
+                value="despacito">
+                <button id="btn3">Set Value</button>
         </div>
     </div>
 
      <script src="jquery-3.7.1.js"></script>
      <script src="pierwszy_przyklad.js"></script>
+     <script>
+        $(function(){
+            var $lista_ul = $('ul').html();
+            // sposob 1
+            $('ol').append($lista_ul);
+            // const $lista_ul = $('ul').text();
+            //sposob 2
+            // console.log($lista_ul);
+            $lista_ul = $('ul').text();
+            $('p').append($lista_ul);
+
+            // const $lista_li = $('li').html();
+            // const $lista_li = $('li').text();
+            // console.log($lista_li);
+        });
+        $(function(){
+            let $zmiana = $('li').eq(2).html();
+            // przypisuje do zmiennej trzeci element listy
+            // usuwa element na i na koncu wstawia po znaczniku <ul>
+            // otwiera liste
+
+            $('li').eq(2).remove();
+            $('ul').prepend('<li>'+$zmiana+'</li>');
+        });
+        $(function(){
+            $('h2').before('<img src="jezyki.png">');
+            $('img').after('<hr><br>');
+            $('#btn3').click(function(){
+                $('#test3').val('despa');
+            })
+        });
+     </script>
 </body>
 </html>
