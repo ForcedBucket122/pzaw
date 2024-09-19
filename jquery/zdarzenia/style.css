@@ -1,0 +1,15 @@
+#zew{
+    width: 80%;
+    height: 200px;
+    margin: 0 auto;
+    background-color: #ccccff;
+}
+#wew{
+    width: 60%;
+    height: 100px;
+    margin: 30px auto;
+    background-color: blue;
+}
+span{
+    font-size: 22px;
+}

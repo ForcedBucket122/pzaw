@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        span{
+            display: none;
+        }
+    </style>
+    <script src="jquery-3.7.1.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('input').on('focus',function(){
+                $('span').eq(0).css('display','inline').fadeOut(4500);
+                //po 4.5s komunikat zostanie ukryty
+                $('input').on('blur',function(){
+                    $('span').eq(1).css('display','inline').fadeOut(4500);
+                });
+                $('input').on('change',function(){
+                    $('span').eq(2).css('display','inline').fadeOut(4500);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="container">
+        <!-- <div id="page"> -->
+            
+            <!-- Wybierz mnie, wpisz cos i wcisni Enter, a nastepnie opuść mnie:
+            <input type="text"><br>
+            <span>Właśnie mnie aktywowałeś</span>
+            <span>Pole zostalo opuszczone</span>
+            <span>Nastąpiła zmiana</span> -->
+        <!-- </div> -->
+        <div id="zew">
+            <span id="komunikat"></span>     
+            <div1wew></div1wew>       
+        </div>
+    </div>
+</body>
+</html>
