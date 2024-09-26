@@ -22,3 +22,7 @@ li{
 img{
     width: 300px;
 }
+
+span {
+    display: none;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.js"></script>
+</head>
+<body>
+    <h1>Dowolny tekst</h1>
+    <h2>Dowolny tekst</h2>
+    <p>Dowolny tekst</p>
+    <span>Dowolny tekst</span>
+    <button>Dowolny tekst</button>
+    <p id="wynik"></p>
+
+    <script>
+        $(document).ready(function() {
+            $('h1, h2, p, span, button').click(function() {
+                $('#wynik').text('Kliknięto element: ' + this.tagName);
+            });
+        });
+    </script>
+</body>
+</html>

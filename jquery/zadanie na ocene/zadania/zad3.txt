@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tlo {
+            background-color: blue;
+        }
+        .czcionka {
+            font-size: 150%;
+        }
+    </style>
+    <script src="jquery-3.7.1.js"></script>
+</head>
+<body>
+    <p class="tlo czcionka">akapit.</p>
+    <button id="usun">Usuń klasy</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#usun').click(function() {
+                $('p').removeClass('tlo czcionka');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -5,7 +5,7 @@
  * Copyright OpenJS Foundation and other contributors
  * Released under the MIT license
  * https://jquery.org/license
- *w
+ *
  * Date: 2023-08-28T13:37Z
  */
 ( function( global, factory ) {

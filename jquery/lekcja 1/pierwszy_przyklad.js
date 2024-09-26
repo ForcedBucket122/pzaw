@@ -11,3 +11,11 @@ $(function(){
     });
     $('[href="#"]').attr('href','https://zs6sobieski.pl/');
 });
+
+$(function(){
+    $('a').odd().css({
+        'color':'white',
+        'text-decoration':'none',
+        'background-color':'red',
+    })
+});
