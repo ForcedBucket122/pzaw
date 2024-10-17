@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="contener">
+        <div id="page">
+            <h4 for="text">Pole formularza input type text:</h4>
+            <input type="text" value="przykładowy tekst">
+            <p></p>
+            <hr>
+            <h4 for="jeden">Pole jednokrotnego wyboru</h4>
+            Języki programowania wykorzystujesz do tworzenia:
+            <select id="tylkoJeden">
+                <option>Stron internetowych</option>
+                <option>Aplikacji desktopowych</option>
+                <option>Aplikacji mobilnych</option>
+                <option>Inne</option>
+            </select>
+            <p></p>
+            <hr>
+            <div id="ulubionyJezyk"></div>
+            <div id="log"></div>
+            <hr>
+
+            <h4>Pole wielokrotnego wyboru:</h4>
+            Pytanie pozostaje to samo, lecz można wybrać kilka opcji:
+            <select id="wiele" multiple>
+                <option>Stron internetowych</option>
+                <option>Aplikacji desktopowych</option>
+                <option>Aplikacji mobilnych</option>
+                <option>Inne</option>
+            </select>
+            <p></p>
+            <hr>
+        </div>
+    </div>
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+        $(function(){
+            $('input').on('keyup',function(){
+                const wartosc = $(this).val();
+                $('p').eq(0).text(wartosc);
+            }).keyup();
+            function wyswietlPojedynczyWybor(){
+                const pojedynczyWybor = $('#tylkoJeden').val();
+                $('p').eq(1).text('Twoj wybór to: '+ pojedynczyWybor);
+            }
+
+            $('select').change(wyswietlPojedynczyWybor);
+            wyswietlPojedynczyWybor();
+
+            function wyborJezyka(){
+                const jakiJezyk = $('#tylkoJeden').val();
+                if(jakiJezyk=='Stron internetowe'){
+                    $('#log').text('');
+                    $('#ulubionyJezyk').html(
+                        'PHP <input type="radio" name="www" value="PHP">JavaScript <input type="radio" name="www" value="JavaScript">'
+                    );
+                    $('input').on('click',function(){
+                        $('#log').html("Wybrano: "+$('input:checked').val());
+                    });
+                }else if(jakiJezyk=='Aplikacji desktopowych'){
+                    $('#log').text('');
+                    $('#ulubionyJezyk').html(
+                        'C++ <input type="radio" name="www" value="C++">Java <input type="radio" name="www" value="Java">'
+                    );
+                    $('input').on('click',function(){
+                        $('#log').html("Wybrano: "+$('input:checked').val());
+                    });
+                }
+            }
+            $('select').change(wyborJezyka);
+            wyborJezyka();
+        });
+    </script>
+</body>
+</html>
