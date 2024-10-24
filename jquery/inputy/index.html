@@ -55,7 +55,7 @@
 
             function wyborJezyka(){
                 const jakiJezyk = $('#tylkoJeden').val();
-                if(jakiJezyk=='Stron internetowe'){
+                if(jakiJezyk=='Stron internetowych'){
                     $('#log').text('');
                     $('#ulubionyJezyk').html(
                         'PHP <input type="radio" name="www" value="PHP">JavaScript <input type="radio" name="www" value="JavaScript">'
@@ -66,15 +66,35 @@
                 }else if(jakiJezyk=='Aplikacji desktopowych'){
                     $('#log').text('');
                     $('#ulubionyJezyk').html(
-                        'C++ <input type="radio" name="www" value="C++">Java <input type="radio" name="www" value="Java">'
+                        'C++ <input type="checkbox" name="desktop" value="C++">Java <input type="checkbox" name="desktop" value="Java"> <button type="button">Sprawdź zaznaczenie</button>'
                     );
-                    $('input').on('click',function(){
-                        $('#log').html("Wybrano: "+$('input:checked').val());
+                    $('button').on('click', function(){
+                        const favorite =[];
+                        $.each($('input[name="desktop"]:checked'),
+                        function(){
+                            favorite.push($(this).val());
+                        });
+                        const ilosc = function(){
+                            const n = $('input:checked').length;
+                            const x = ((n===1)? 'Moim ulubionym językiem jest: ':'Moimi ulubionymi językami są: ');
+                            alert (x+favorite.join(', '));
+                        };
+                        ilosc();
                     });
+                }else{
+                    $('#log').text('');
+                    $('#ulubionyJezyk').html('<div>Obrazek</div>');
                 }
             }
             $('select').change(wyborJezyka);
             wyborJezyka();
+
+            function wyswietlWielokrotnyWybor(){
+                const wielokrotnyWybor = $('#wiele').val();
+                $('p').eq(2).text('Twoj wybor ro: '+wielokrotnyWybor.join(', '));
+            }
+            $('select').change(wyswietlWielokrotnyWybor);
+            wyswietlWielokrotnyWybor();
         });
     </script>
 </body>
