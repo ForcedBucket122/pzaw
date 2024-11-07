@@ -17,4 +17,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_close($con); // Zamknięcie połączenia z bazą danych
     header("location: panel.php");
 }
-?>

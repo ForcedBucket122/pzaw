@@ -32,6 +32,7 @@
             <th scope="col">Akwen</th>
             <th scope="col">Wojewodztwo</th>
             <th scope="col">Rodzaj</th> 
+            <th scope="col">Modyfikowanie wierszy</th>
             <th scope="col">Usuwanie wierszy</th>
           </tr>
         </thead>
@@ -44,6 +45,7 @@
                 foreach ($row as $key) {
                     echo"<td>".$key."</td>";
                 }
+                echo '<td><form action="modyfikuj.php" method="post"><input type="number" name="id" id="id" value="'.$row["id"].'"><button type="submit" class="btn btn-primary">Modyfikuj</button></form></td>';
                 echo '<td><form action="usun.php" method="post"><input type="number" name="id" id="id" value="'.$row["id"].'"><button type="submit" class="btn btn-danger">Usun</button></form></td>';
                 echo "</tr>";
             }
