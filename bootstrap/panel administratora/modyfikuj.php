@@ -45,29 +45,47 @@
     </head>
     <body>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
-        <form method="POST" action="dodawanie.php">
+        <form method="POST" action="modyfikowanie.php">
             <div id="gora">
                 <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="rybyId" placeholder="Ryby ID" name="rybyId" required>
+                    <?php
+                        require 'polaczenie.php';
+                        @$id = $_POST['id'];
+                        $queryId = mysqli_query($con,"SELECT * FROM lowisko WHERE id='$id'");
+                        while ($row=mysqli_fetch_assoc($queryId)){
+                            
+                            echo "<input type='number' class='form-control' id='rybyId' placeholder='Ryby ID' name='rybyId' value='".$row['Ryby_id']."' required>";
+                    ?>
+                  
                   <label for="rybyId">1.Ryby ID</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="akwen" placeholder="Akwen" name="akwen" required>
+                    <?php
+                            echo "<input type='text' class='form-control' id='akwen' placeholder='Akwen' name='akwen' value='".$row['akwen']."' required>";
+                    ?>
                   <label for="akwen">2.Akwen</label>
                 </div>
             </div>
             <div id="dol">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="wojewodztwo" placeholder="Województwo" name="wojewodztwo" required>
+                    <?php
+                            echo "<input type='text' class='form-control' id='wojewodztwo' placeholder='Województwo' name='wojewodztwo' value='".$row['wojewodztwo']."' required>";
+                    ?>
                     <label for="wojewodztwo">3.Województwo</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="rodzaj" placeholder="Rodzaj" name="rodzaj" required>
+                    <?php
+                            echo "<input type='number' class='form-control' id='rodzaj' placeholder='Rodzaj' name='rodzaj' value='".$row['rodzaj']."' required>";
+                        
+                    ?>
                   <label for="rodzaj">4.Rodzaj</label>
                 </div>
             </div>
             <div id="submit">
-                <button type="submit" class="btn btn-success">Dodaj</button>
+                <?php
+                            echo '<input type="number" name="id" id="id" value="'.$row["id"].'"><button type="submit" class="btn btn-primary">Modyfikuj</button>';
+                        }
+                ?>
                 <a href="panel.php"><button type="button" class="btn btn-secondary">Powrót</button></a>
             </div>
         </form>

@@ -5,17 +5,20 @@
         $akwen = isset($_POST['akwen']) ? $_POST['akwen'] : '';
         $woj = isset($_POST['wojewodztwo']) ? $_POST['wojewodztwo'] : '';
         $rodzaj = isset($_POST['rodzaj']) ? $_POST['rodzaj'] : '';
+        $id = isset($_POST['id']) ? $_POST['id'] : '';
     
-        $sql = "INSERT INTO lowisko (Ryby_id, akwen, wojewodztwo, rodzaj) VALUES ('$rybyId', '$akwen', '$woj', '$rodzaj')";
+    
+        $sql = "UPDATE lowisko SET Ryby_id='$rybyId', akwen='$akwen', wojewodztwo='$woj', rodzaj='$rodzaj' WHERE id='$id'";
     
         if (mysqli_query($con, $sql)) {
-            echo "Rekord został dodany pomyślnie.";
+            echo "Rekord został zmodyfikowany pomyślnie.";
         } else {
             echo "Błąd: " . mysqli_error($con);
         }
     
         mysqli_close($con);
         header("location: panel.php");
+        exit(); 
     }
 
 
