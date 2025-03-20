@@ -1,0 +1,12 @@
+<h2>Liczba kursów: {{table.length}}</h2>
+<ol>
+    <li *ngFor='let kurs of table'>{{kurs}}</li>
+</ol>
+
+<form action="#">
+    <label for="imie_nazwisko">imie i nazwisko</label>
+    <input type="text" name="imie_nazwisko" id="IN" placeholder="imie i nazwisko">
+    <label for="numer">numer kursu</label>
+    <input type="number" name="numer" id="numer" placeholder="numer kursu">
+    <input type="button" value="Zapisz do kursu">
+</form>
