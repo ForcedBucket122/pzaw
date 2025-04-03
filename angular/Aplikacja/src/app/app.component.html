@@ -1,1 +1,15 @@
-<app-comp/>
+<div id="contener">
+    <h2>Liczba kursów: {{table.length}}</h2>
+    <ol>
+        <li *ngFor='let kurs of table'>{{kurs}}</li>
+    </ol>
+
+    <form action="#">
+        <label for="imie_nazwisko" class="form-label">Imie i nazwisko</label>
+        <input #Imie type="text" name="imie_nazwisko" class="form-control" id="imie" placeholder="imie i nazwisko">
+        <label for="numer" class="form-label">Numer kursu</label>
+        <input #Numer type="number" name="numer" class="form-control" id="numer" placeholder="numer kursu">
+    </form>
+    <br>
+    <button class="btn btn-primary" (click)="ZapiszDoKursu(Imie.value, Numer.value)">Zapisz do kursu</button>
+</div>
