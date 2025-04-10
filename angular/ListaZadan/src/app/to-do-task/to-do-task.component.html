@@ -1,0 +1,7 @@
+Lista zadan do wykonania: {{ListaZadan.length}}
+      <ul>
+        <li *ngFor="let zadanie of ListaZadan">{{zadanie}}
+          <button (click)="remove(zadanie)">usuń</button>
+          <button (click)="done(zadanie)">wykonano</button>
+        </li>
+      </ul>
