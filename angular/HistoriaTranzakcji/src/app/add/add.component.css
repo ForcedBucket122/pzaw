@@ -1,0 +1,9 @@
+.menu{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+input{
+    width: 100px;
+}

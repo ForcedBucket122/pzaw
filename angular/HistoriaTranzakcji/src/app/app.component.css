@@ -1,0 +1,28 @@
+#kontener{
+    height: 78vh;
+    /* border: solid 1px black; */
+}
+.wplaty, .wyplaty{
+    border: solid 1px black;
+    width: 100%;
+    height: 100%;
+}
+.wplaty h2, .wyplaty h2{
+    text-align: center;
+}
+.ww{
+    display: flex;
+    height: 100%;
+}
+
+.baner{
+    text-align: center;
+    border: solid 1px black;    
+}
+
+li{
+    border: solid 1px black;
+    margin: 10px;
+    padding: 10px;
+    
+}
