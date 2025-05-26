@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-add',
@@ -8,21 +8,36 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './add.component.css'
 })
 export class AddComponent {
-  cel=''
+  @Input()
+  saldo!: number;
+  cel='';
   kwota=0;
   add(){
+    // console.log(this.saldo);
     var cel2:String = this.cel+": ";
     var x:number= +this.kwota;
       if(x>=0){
+        this.emitWplata.emit(cel2.toString()+" "+x.toString()+"zł");
         this.emitKwota.emit(x);
-        this.emitCel.emit(cel2.toString())
+        // this.emitKwota.emit(x);
+        // this.emitCel.emit(cel2.toString())
       }else{
-        var x:number=-this.kwota
-        this.emitKwota.emit(x);
-        this.emitCel.emit(cel2.toString())
+        
+        if(this.saldo+this.kwota<0){
+          alert("Zbyt niskie saldo!")
+        }else{
+          var x:number=-this.kwota
+          this.emitWyplata.emit(cel2.toString()+" "+-x.toString()+"zł");
+          this.emitKwota.emit(-x);
+          // this.emitKwota.emit(x);
+          // this.emitCel.emit(cel2.toString())
+        }
       }
   }
   @Output()
-  emitKwota = new EventEmitter<number>
-  emitCel = new EventEmitter<string>
+  emitWplata = new EventEmitter<string>;
+  @Output()
+  emitWyplata = new EventEmitter<string>;
+  @Output()
+  emitKwota = new EventEmitter<number>;
 }

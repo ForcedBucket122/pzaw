@@ -8,7 +8,7 @@ import { WyplatyComponent } from './wyplaty/wyplaty.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,FormsModule, NgFor, AddComponent, WplatyComponent, WyplatyComponent],
+  imports: [RouterOutlet,FormsModule, AddComponent, WplatyComponent, WyplatyComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -17,7 +17,12 @@ export class AppComponent {
   saldo=200;
   listaWplat:Array<String>=[];
   listaWyplat:Array<String>=[];
-  add(){
-      
+  addWplata(wplata:string){
+      this.listaWplat.push(wplata);
+  }addWyplata(wyplata:string){
+      this.listaWyplat.push(wyplata);
+  }
+  checkSaldo(kwota:number){
+      this.saldo=this.saldo+kwota;
   }
 }

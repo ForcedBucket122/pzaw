@@ -1,20 +1,14 @@
 <div id="kontener">
   <div class="baner">
     <h1 class="tytul">Saldo: {{saldo}}zł</h1>
-      <app-add (emitLista)="add($event)"></app-add>
+      <app-add (emitWplata)="addWplata($event)" (emitWyplata)="addWyplata($event)" (emitKwota)="checkSaldo($event)" [saldo]="saldo"></app-add>
   </div>
   <div class="ww">
     <div class="wplaty">
-      <h2>Wpłaty</h2>
-      <ul>
-        <li *ngFor="let wplata of listaWplat">{{wplata}}</li>
-      </ul>
+      <app-wplaty [listaWplat]="listaWplat"></app-wplaty>
     </div>
     <div class="wyplaty">
-      <h2>Wyplaty</h2>
-      <ul>
-        <li *ngFor="let wyplata of listaWyplat">{{wyplata}}</li>
-      </ul>
+      <app-wyplaty [listaWyplat]="listaWyplat"></app-wyplaty>
     </div>
   </div>
 </div>
