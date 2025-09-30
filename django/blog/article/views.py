@@ -65,4 +65,4 @@ def home(request):
     </body>
     </html>
     '''
-    return HttpResponse(html)
+    return render(request,'article/home.html',{"products":product})

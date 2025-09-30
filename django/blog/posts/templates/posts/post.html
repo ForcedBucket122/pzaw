@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Produkty</h1>
+        <table border="1" cellpadding="10" cellspacing="0">
+        <tr>
+            <th>ID</th>
+            <th>Nazwa</th>
+            <th>Opis</th>
+            <th>Cena (PLN)</th>
+        </tr>
+    {%for product in products:%}
+        <tr>
+            <td>{product["id"]}</td>
+            <td>{product["name"]}</td>
+            <td>{product["content"]}</td>
+            <td>{product["price"]:.2f}</td>
+        </tr>
+    {%endfor%}
+    </table>
+</body>
+</html>
