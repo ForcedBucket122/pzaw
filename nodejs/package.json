@@ -1,0 +1,17 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "Pierwszy projekt w Node.js do nauki",
+  "keywords": [
+    "node.js",
+    "projekt",
+    "nauka"
+  ],
+  "license": "ISC",
+  "author": "JSz",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
